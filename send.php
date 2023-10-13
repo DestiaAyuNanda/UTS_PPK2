@@ -1,31 +1,38 @@
 <?php
-// Get the form data
-$nama = $_POST['Nama'];
-$alamat = $_POST['Alamat'];
-$noWA = $_POST['NoWA'];
-$ig = $_POST['IG'];
-$gender = $_POST['fav_language'];
-$date = $_POST['date'];
-$pilihanItem = $_POST['Pilihan Item'];
-$noWAOrtu = $_POST['NoWA_ortu'];
-$message = $_POST['Message'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ambil data dari formulir
+    $nama = $_POST["Nama"];
+    $alamat = $_POST["Alamat"];
+    $noWA = $_POST["NoWA"];
+    $instagram = $_POST["IG"];
+    $gender = $_POST["fav_language"];
+    $dateTime = $_POST["date"];
+    $pilihanItem = $_POST["Pilihan Item"];
+    $noWAOrtu = $_POST["NoWA_ortu"];
+    $keterangan = $_POST["keterangan"];
 
-// Your Twilio account SID and auth token
-$accountSid = 'your-account-sid';
-$authToken = 'your-auth-token';
+    // Buat pesan email
+    $pesan = "Data Booking:\n";
+    $pesan .= "Nama: $nama\n";
+    $pesan .= "Alamat: $alamat\n";
+    $pesan .= "No WhatsApp: $noWA\n";
+    $pesan .= "Instagram: $instagram\n";
+    $pesan .= "Gender: $gender\n";
+    $pesan .= "Date and Time: $dateTime\n";
+    $pesan .= "Item Yang Disewa: $pilihanItem\n";
+    $pesan .= "No WhatsApp Ortu: $noWAOrtu\n";
+    $pesan .= "Keterangan: $keterangan\n";
 
-// Create a new Twilio client
-$client = new Twilio\Rest\Client($accountSid, $authToken);
+    // Email tujuan
+    $emailTujuan = "destiaayunanda23@gmail.com"; // Ganti dengan alamat email yang sesuai
 
-// Send the WhatsApp message
-$message = $client->messages->create(
-    'whatsapp:+6282229257929', // Your WhatsApp number
-    array(
-        'from' => 'whatsapp:+14155238886', // Your Twilio WhatsApp number
-        'body' => "Nama: $nama\nAlamat: $alamat\nNo WhatsApp: $noWA\nInstagram: $ig\nGender: $gender\nDate and time: $date\nPilihan Item: $pilihanItem\nNo.WA ortu: $noWAOrtu\nMessage: $message"
-    )
-);
+    // Judul email
+    $judulEmail = "Formulir Booking";
 
-// Return a success message
-echo 'Message sent successfully';
+    // Kirim email
+    mail($emailTujuan, $judulEmail, $pesan);
+
+    // Redirect kembali ke halaman sebelumnya atau halaman terima kasih
+    header("Location: halaman-terima-kasih.html"); // Ganti dengan URL halaman terima kasih Anda
+}
 ?>
