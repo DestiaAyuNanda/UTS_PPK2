@@ -156,9 +156,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <div class="w3-content"id="reserve">    
     <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
     <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nama" required name="Nama"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Alamat" required name="Alamat"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="No WhatsApp" required name="NoWA"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Instagram" required name="IG"></p>
+      <p>Gender:</p>
+          <input type="radio" id="html" name="fav_language" value="Man"> 
+          <label for="Man">Man</label>
+          <input type="radio" id="css" name="fav_language" value="Woman">
+          <label for="Woman">Woman</label><br>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="Hari/Tanggal"></p>
+      <label for="lname">Item Yang Disewa:</label>
+          <select name="Pilihan Item">
+            <option value=>1 Tripod = 10.000</option>
+            <option value=>1 Kursi = 10.000</option>
+            <option value=>1 Meja = 15.000</option>
+            <option value=>2 Kursi = 18.000</option>
+            <option value=>1 Tripod + 1 Kursi = 18.000</option>
+            <option value=>1 Kursi + 1 Meja = 23.000</option>
+            <option value=>1 Tripod + 2 Kursi = 25.000</option>
+            <option value=>2 Kursi + 1 Meja = 30.000</option>
+            <option value=>1 Tripod + 1 Kursi + 1 Meja = 30.000</option>
+            <option value=>1 Tripod + 2 Kursi + 1 Meja = 42.000</option>
+          </select><br><br>
+          <label for="lname">Upload Photo KTP: </label><br>
+          <input type="submit" value="Choose File"><br>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="No.WA ortu (untuk dibawah 17thn)" required name="NoWA ortu"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
       <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
     </form>
