@@ -1,6 +1,5 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ambil data dari formulir
     $nama = $_POST["Nama"];
     $alamat = $_POST["Alamat"];
     $noWA = $_POST["NoWA"];
@@ -12,27 +11,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $keterangan = $_POST["keterangan"];
 
     // Buat pesan email
-    $pesan = "Data Booking:\n";
-    $pesan .= "Nama: $nama\n";
-    $pesan .= "Alamat: $alamat\n";
-    $pesan .= "No WhatsApp: $noWA\n";
-    $pesan .= "Instagram: $instagram\n";
-    $pesan .= "Gender: $gender\n";
-    $pesan .= "Date and Time: $dateTime\n";
-    $pesan .= "Item Yang Disewa: $pilihanItem\n";
-    $pesan .= "No WhatsApp Ortu: $noWAOrtu\n";
-    $pesan .= "Keterangan: $keterangan\n";
+    $to = "destiaayunanda23@gmail.com"; // Alamat email tujuan
+    $subject = "Formulir Booking"; // Subjek email
 
-    // Email tujuan
-    $emailTujuan = "destiaayunanda23@gmail.com"; // Ganti dengan alamat email yang sesuai
+    $message = "
+    Data Booking:
+    Nama: $nama
+    Alamat: $alamat
+    No WhatsApp: $noWA
+    Instagram: $instagram
+    Gender: $gender
+    Date and Time: $dateTime
+    Item Yang Disewa: $pilihanItem
+    No WhatsApp Ortu: $noWAOrtu
+    Keterangan: $keterangan
+    ";
 
-    // Judul email
-    $judulEmail = "Formulir Booking";
+    // Header email
+    $headers = "From: your_email@example.com"; // Gantilah dengan alamat email pengirim
+    $headers .= "Content-Type: text/plain; charset=UTF-8";
 
     // Kirim email
-    mail($emailTujuan, $judulEmail, $pesan);
-
-    // Redirect kembali ke halaman sebelumnya atau halaman terima kasih
-    header("Location: halaman-terima-kasih.html"); // Ganti dengan URL halaman terima kasih Anda
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Data formulir berhasil dikirim. Terima kasih!";
+    } else {
+        echo "Maaf, terjadi kesalahan saat mengirim data formulir.";
+    }
 }
 ?>
