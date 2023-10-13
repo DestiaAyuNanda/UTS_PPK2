@@ -29,7 +29,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <a href="#item" class="w3-bar-item w3-button">ITEM</a>
     <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
     <a href="#myMap" class="w3-bar-item w3-button">CONTACT</a>
-    <a href="#reserve" class="w3-bar-item w3-button">RESERVE</a>
+    <a href="#booking" class="w3-bar-item w3-button">BOOKING</a>
   </div>
 </div>
   
@@ -153,13 +153,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <a href="https://wa.me/(6283846767274)" style="background-color:#239b76;" class="btn WhatsApp3"><span class="fa fa-WhatsApp3"></span>WA Admin 3</a>
 <hr>
 
-<div class="w3-content"id="reserve">    
-    <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+<div class="w3-content"id="booking">    
+    <p class="w3-xxlarge"><strong>Booking!</strong> silahkan mengisi data di bawah ini untuk melakukan reservasi atau booking.</p>
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nama" required name="Nama"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Alamat" required name="Alamat"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="No WhatsApp" required name="NoWA"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Instagram" required name="IG"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Instagram" required name="IG"></p>
       <p>Gender:</p>
           <input type="radio" id="html" name="fav_language" value="Man"> 
           <label for="Man">Man</label>
@@ -200,24 +200,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </ul>
   </div>
 </div>
-
-<script>
-// Tabbed Menu
-function openMenu(evt, menuName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("menu");
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-  document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-red";
-}
-document.getElementById("myLink").click();
-</script>
 
 </body>
 </html>
